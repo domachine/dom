@@ -103,9 +103,25 @@ describe('.insertAfter()', function(){
 
   it('should insert the element(s)', function(){
     var container = dom('<div></div>')
-      , one = domify('<p>One</p>');
+      , one = dom('<p>One</p>');
     container.append(one);
     dom('<p>Two</p>').insertAfter(one);
+
+    assert('<p>One</p><p>Two</p>' == container.html());
+  })
+})
+
+describe('.after()', function(){
+  it('should return itself for chaining', function(){
+    var list = dom('<div></div>');
+    assert(list == list.after('<p></p>'));
+  })
+
+  it('should insert the element(s)', function(){
+    var container = dom('<div></div>')
+      , one = dom('<p>One</p>');
+    container.append(one);
+    one.after('<p>Two</p>');
 
     assert('<p>One</p><p>Two</p>' == container.html());
   })

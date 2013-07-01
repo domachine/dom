@@ -283,13 +283,34 @@ List.prototype.appendTo = function(val){
   return this;
 };
 
+/**
+ * Insert self's `els` after `val`
+ *
+ * @param {String|Element|List} val
+ * @return {List} self
+ * @api public
+ */
+
 List.prototype.insertAfter = function(val){
   val = dom(val).els[0];
   if (!val || !val.parentNode) return this;
   this.els.forEach(function(el){
     val.parentNode.insertBefore(el, val.nextSibling);
   });
-  return val;
+  return this;
+};
+
+/**
+ * Insert  `val` after self's `els`
+ *
+ * @param {String|Element|List} val
+ * @return {List} self
+ * @api public
+ */
+
+List.prototype.after = function(val){
+  dom(val).insertAfter(this);
+  return this;
 };
 
 /**
