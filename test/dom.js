@@ -103,8 +103,9 @@ describe('.insertAfter()', function(){
 
   it('should insert the element(s)', function(){
     var container = dom('<div></div>')
-      , one = [domify('<p>One</p>'), domify('<p>Two</p>')];
+      , one = domify('<p>One</p>');
     container.append(one);
+    dom('<p>Two</p>').insertAfter(one);
 
     assert('<p>One</p><p>Two</p>' == container.html());
   })
