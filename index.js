@@ -284,7 +284,7 @@ List.prototype.appendTo = function(val){
 };
 
 /**
- * Insert  `val` after self's `els`
+ * Insert self's `els` after `val`
  *
  * @param {String|Element|List} val
  * @return {List} self
